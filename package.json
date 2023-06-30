@@ -1,4 +1,5 @@
 {
+  "homepage":"https://github.com/SantiagoRodriguezP/todo-app",
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
   "dependencies": {
@@ -15,7 +16,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy":"npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -35,6 +38,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-dom": "^18.2.6"
+    "@types/react-dom": "^18.2.6",
+    "gh-pages": "^5.0.0"
   }
 }
