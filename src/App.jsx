@@ -11,10 +11,10 @@ import { TodoItem } from './TodoItem';
 
 const defaultTodos = [
   {text: 'Cortar cebolla', completed:true},
-  {text: 'Terminar curso de react', completed:true},
+  {text: 'Terminar curso de react', completed:false},
   {text: 'Desarrollar esta opción', completed:true},
   {text: 'Agregarle estilos css',  completed:false},
-  
+  {text: 'Llorar con la llorona',  completed:false},
 ]
 const App = ()=> {
   return (
@@ -29,11 +29,18 @@ const App = ()=> {
         }}
       >
 
-      <Stack sx={{backgroundColor:'#F1F0EE', borderTopLeftRadius:20,borderTopRightRadius:20,height:500}}>
+      <Stack sx={{
+          backgroundColor:'#F1F0EE',
+          borderTopLeftRadius:20,
+          borderTopRightRadius:20,
+          borderBottomLeftRadius:20,
+          borderBottomRightRadius:20,
+          height:500
+        }}>
         <Stack sx={{width:500,height:'auto'}}>
           <Box sx={{height:100 ,borderTopLeftRadius:20,borderTopRightRadius:20, backgroundColor:'blue'}}>
             <Typography variant="h6" color="white" textAlign="center">¿Qué quieres hacer?</Typography>
-            <TodoCounter completed={4} total={5} />
+            <TodoCounter completed={2} total={5} />
             <TodoSearch/>
             <Paper elevation={3} className="contentAlign" sx={{width:431,mt:1, ml:4.5}}>
               <TodoList>

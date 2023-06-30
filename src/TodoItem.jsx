@@ -14,7 +14,7 @@ function TodoItem({text,completed}){
         <ListItemIcon>
           <Checkbox checked={completed ? "checked" :""} />
         </ListItemIcon>
-        <ListItemText>{text}</ListItemText>
+        <ListItemText className={completed ? "completed" :""}>{text}</ListItemText>
       </ListItemButton>
     </ListItem>
   )
