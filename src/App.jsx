@@ -1,11 +1,13 @@
 import React from 'react';
 
-import './App.css';
+import {Box,Paper,Stack,Typography} from '@mui/material';
+
+
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
-import { CreateTodoButton } from './CreateTodoButton';
+
 
 const defaultTodos = [
   {text: 'Cortar cebolla', completed:true},
@@ -16,24 +18,39 @@ const defaultTodos = [
 ]
 const App = ()=> {
   return (
-    <div className="App">
-      <TodoCounter completed={4} total={5} />
-      <TodoSearch/>
-      <TodoList>
-        {
-          defaultTodos.map(todo => (
-            <TodoItem 
-              key={todo.text} 
-              text={todo.text} 
-              completed={todo.completed} />
-          ))
-        }
-      </TodoList>
+     <Box
+      sx={{
+        display: 'flex',
+        alignItems:'center',
+        flexDirection:'column',
+        width:'100wv',
+        height:'95vh',
+        pt:5
+      }}
+      >
+      <Stack sx={{width:500,height:'auto'}}>
+        <Box sx={{height:100 ,borderTopLeftRadius:20,borderTopRightRadius:20, backgroundColor:'blue'}}>
+          <Typography variant="h6" color="white" textAlign="center">¿Qué quieres hacer?</Typography>
+          <TodoCounter completed={4} total={5} />
+          <TodoSearch/>
 
-      <CreateTodoButton/>
-  
-     
-    </div>
+        </Box>
+      </Stack>
+          {/* <Paper elevation={3}   >
+            <TodoList>
+              {
+                defaultTodos.map(todo => (
+                  <TodoItem 
+                    key={todo.text} 
+                    text={todo.text} 
+                    completed={todo.completed} />
+                    ))
+                  }
+            </TodoList>
+         
+          </Paper> */}
+    </Box>
+      
   );
 }
 

@@ -1,7 +1,10 @@
 import React from 'react'
+import {Typography} from '@mui/material'
 
 export const TodoCounter = ({total, completed}) => {
   return (
-    <h1>Has completado {completed} de {total} TODOS</h1>
+    <Typography variant="body2" color="white" align="center">
+      Has completado {completed} de {total} TODOS
+    </Typography>
   )
 }
