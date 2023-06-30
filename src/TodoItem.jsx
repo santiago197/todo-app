@@ -12,7 +12,7 @@ function TodoItem({text,completed}){
     >
       <ListItemButton dense>
         <ListItemIcon>
-          <Checkbox checked={completed ? "checked" :""} />
+          <Checkbox checked={completed ? true : false} />
         </ListItemIcon>
         <ListItemText className={completed ? "completed" :""}>{text}</ListItemText>
       </ListItemButton>

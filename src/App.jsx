@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {Box,Paper,Stack,Typography} from '@mui/material';
 
@@ -14,9 +14,21 @@ const defaultTodos = [
   {text: 'Terminar curso de react', completed:false},
   {text: 'Desarrollar esta opción', completed:true},
   {text: 'Agregarle estilos css',  completed:false},
-  {text: 'Llorar con la llorona',  completed:false},
+  {text: 'Llorar con la llorona',  completed:true},
 ]
 const App = ()=> {
+  const [searchValue, setSearchValue] = useState('');
+  const [todos, setTodos] = useState(defaultTodos);
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
+  
   return (
      <Box
         sx={{
@@ -28,7 +40,6 @@ const App = ()=> {
           pt:5
         }}
       >
-
       <Stack sx={{
           backgroundColor:'#F1F0EE',
           borderTopLeftRadius:20,
@@ -40,12 +51,12 @@ const App = ()=> {
         <Stack sx={{width:500,height:'auto'}}>
           <Box sx={{height:100 ,borderTopLeftRadius:20,borderTopRightRadius:20, backgroundColor:'blue'}}>
             <Typography variant="h6" color="white" textAlign="center">¿Qué quieres hacer?</Typography>
-            <TodoCounter completed={2} total={5} />
-            <TodoSearch/>
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
             <Paper elevation={3} className="contentAlign" sx={{width:431,mt:1, ml:4.5}}>
               <TodoList>
                 {
-                  defaultTodos.map(todo => (
+                  searchedTodos.map(todo => (
                     <TodoItem 
                       key={todo.text} 
                       text={todo.text} 
