@@ -1,9 +1,11 @@
+import { List } from '@mui/material'
 import React from 'react'
 
 export const TodoList = (props) => {
   return (
-    <ul>
+    <List sx={{ width: '100%', maxWidth: 400 }}>
       {props.children}
-    </ul>
+    </List>
+    
   )
 }

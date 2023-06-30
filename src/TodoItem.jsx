@@ -1,12 +1,22 @@
+import { ListItemButton, ListItemIcon,Checkbox, ListItemText, ListItem, IconButton } from "@mui/material"
+import DeleteIcon from '@mui/icons-material/DeleteOutline';
+
 function TodoItem({text,completed}){
   return (
-    <div>
-      <li>
-        <span>{completed ? '👍' :'🔄️' }</span>
-        <p>{text}</p>
-        <p>❌</p>
-      </li>
-    </div>
+    <ListItem secondaryAction={
+      <IconButton edge="end" aria-label="remove">
+        <DeleteIcon/>
+      </IconButton>
+      } 
+      disablePadding
+    >
+      <ListItemButton dense>
+        <ListItemIcon>
+          <Checkbox checked={completed ? "checked" :""} />
+        </ListItemIcon>
+        <ListItemText>{text}</ListItemText>
+      </ListItemButton>
+    </ListItem>
   )
 }
 export {TodoItem}
