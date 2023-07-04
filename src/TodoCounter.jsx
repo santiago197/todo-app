@@ -4,7 +4,9 @@ import { confettiFireworks } from './utils/fireworks'
 
 export const TodoCounter = ({total, completed}) => {
   let mensaje = `Has completado ${completed} de ${total} TODOS`;
-  if(completed===total){
+  if(completed===0){
+    mensaje='Agrega tus tareas y logra tus objetivos';
+  }else  if(completed===total){
     mensaje = `¡Felicitaciones!, completaste todas las tareas`;
     confettiFireworks();
   }
