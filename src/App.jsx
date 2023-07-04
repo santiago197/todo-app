@@ -30,16 +30,14 @@ const App = ()=> {
   });
 
   const completeTodo = (text) =>{
-    console.log('Estás tratando de hacer algo????');
     const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex(todo => todo.text == text);
+    const todoIndex = newTodos.findIndex(todo => todo.text === text);
     newTodos[todoIndex].completed = true;
     setTodos(newTodos);
   }
   const deleteTodo = (text) =>{
-    console.log('Estás tratando desdfo????');
     const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex(todo => todo.text == text);
+    const todoIndex = newTodos.findIndex(todo => todo.text === text);
     newTodos.splice(todoIndex,1);
     setTodos(newTodos);
   }
