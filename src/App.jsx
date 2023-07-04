@@ -9,6 +9,7 @@ import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
+import { useLocalStorage } from './utils/local-storage';
 
 
 // const defaultTodos = [
@@ -21,18 +22,12 @@ import { TodoItem } from './TodoItem';
 
 // localStorage.setItem('TODOS',JSON.stringify(defaultTodos));
 
+
+
 const App = ()=> {
-  const localStorageTodos = localStorage.getItem('TODOS');
-
-  let parsedTodos;
-  if(!localStorageTodos){
-    localStorage.setItem('TODOS','[]');
-  }else{
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
+ 
   const [searchValue, setSearchValue] = useState('');
-  const [todos, setTodos] = useState(parsedTodos);
+  const [todos, saveTodos] = useLocalStorage('TODOS',[]);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -44,10 +39,6 @@ const App = ()=> {
   });
 
 
-  const saveTodos = (newTodos) =>{
-    localStorage.setItem('TODOS', JSON.stringify(newTodos));
-    setTodos(newTodos);
-  }
 
   const completeTodo = (text) =>{
     const newTodos = [...todos];
