@@ -43,17 +43,23 @@ const App = ()=> {
     return todoText.includes(searchText);
   });
 
+
+  const saveTodos = (newTodos) =>{
+    localStorage.setItem('TODOS', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  }
+
   const completeTodo = (text) =>{
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(todo => todo.text === text);
     newTodos[todoIndex].completed=!newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
   const deleteTodo = (text) =>{
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(todo => todo.text === text);
     newTodos.splice(todoIndex,1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
   
   return (
