@@ -1,9 +1,9 @@
 import React from 'react'
-import './index.css';
+import '../index.css';
 
 import {Paper,TextField,Stack} from '@mui/material'
 
-import { CreateTodoButton } from './CreateTodoButton';
+import { CreateTodoButton } from './CreateButton';
 
 export const TodoSearch = ({searchValue,setSearchValue}) => {
 

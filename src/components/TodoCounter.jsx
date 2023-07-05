@@ -1,6 +1,6 @@
 import React from 'react'
 import {Typography} from '@mui/material'
-import { confettiFireworks } from './utils/fireworks'
+import { confettiFireworks } from '../utils/fireworks'
 
 export const TodoCounter = ({total, completed}) => {
   let mensaje = `Has completado ${completed} de ${total} TODOS`;
