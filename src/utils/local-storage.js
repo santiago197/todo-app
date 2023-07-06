@@ -41,3 +41,13 @@ export const useLocalStorage = (itemName, initialValue) => {
     error
   };
 }
+
+// const defaultTodos = [
+//   {text: 'Cortar cebolla', completed:true},
+//   {text: 'Terminar curso de react', completed:false},
+//   {text: 'Desarrollar esta opción', completed:true},
+//   {text: 'Agregarle estilos css',  completed:false},
+//   {text: 'Llorar con la llorona',  completed:true},
+// ]
+
+// localStorage.setItem('TODOS',JSON.stringify(defaultTodos));
