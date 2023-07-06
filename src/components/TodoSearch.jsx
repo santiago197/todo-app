@@ -16,7 +16,7 @@ export const TodoSearch = () => {
         <TextField 
           fullWidth  
           id="add-todo" 
-          label="Buscar a agregar nueva tarea" 
+          label="Buscar o agregar nueva tarea" 
           variant="standard" 
           sx={{mt:1}} 
           onChange={(event) => {

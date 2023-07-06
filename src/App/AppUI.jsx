@@ -1,6 +1,9 @@
 
 import {Box,Paper,Stack,Typography} from '@mui/material';
 
+import { createPortal } from 'react-dom';
+
+
 import { TodoCounter } from '../components/TodoCounter';
 import { TodoSearch } from '../components/TodoSearch';
 import { TodoList } from '../components/TodoList';
@@ -9,6 +12,7 @@ import { TodoLoading } from '../components/TodoLoading';
 import { EmptyTodos } from '../components/EmptyTodos';
 import {TodoContext} from '../context/TodoProvider'
 import { useContext } from 'react';
+import { ModalNewTodo } from '../components/ModalMessage';
 
 const AppUI = ()=> {
 
@@ -17,7 +21,8 @@ const AppUI = ()=> {
     error,
     searchedTodos,
     completeTodo,
-    deleteTodo
+    deleteTodo,
+    openModal
   } = useContext(TodoContext);
   return (
      <Box
@@ -64,8 +69,14 @@ const AppUI = ()=> {
           </Box>
         </Stack>
       </Stack>
-    </Box>
+      {openModal && createPortal(
+        <ModalNewTodo openModal={openModal} />,
+        document.body
+      )}
       
+    </Box>
+
+
   );
 }
 

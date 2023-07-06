@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import {Button,Stack} from '@mui/material'
 import AddIcon from '@mui/icons-material/AddCircleOutline';
+import { TodoContext } from '../context/TodoProvider';
 
 export const CreateTodoButton = () => {
+  const {setOpenModal,openModal} = useContext(TodoContext);
+
   const handleClickAdd = () =>{
-    console.log('Me has clickeado');
+    setOpenModal(!openModal);
   }
   return (
     <Stack sx={{width:100, mt:1}}>
