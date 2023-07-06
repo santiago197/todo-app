@@ -12,7 +12,7 @@ import { TodoLoading } from '../components/TodoLoading';
 import { EmptyTodos } from '../components/EmptyTodos';
 import {TodoContext} from '../context/TodoProvider'
 import { useContext } from 'react';
-import { ModalNewTodo } from '../components/ModalMessage';
+import { ModalNewTodo } from '../components/ModalNewTodo';
 
 const AppUI = ()=> {
 
