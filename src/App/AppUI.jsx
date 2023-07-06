@@ -33,7 +33,7 @@ const AppUI = ()=> {
           <Box sx={{height:100 ,borderTopLeftRadius:20,borderTopRightRadius:20, backgroundColor:'blue'}}>
             <Typography variant="h6" color="white" textAlign="center">¿Qué quieres hacer?</Typography>
             <TodoCounter />
-            <TodoSearch />
+            <TodoSearch  />
             <Paper elevation={3} className="contentAlign" sx={{width:431,mt:1, ml:4.5}}>
               <TodoContext.Consumer>
                 {({

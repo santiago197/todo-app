@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Typography} from '@mui/material'
 import { confettiFireworks } from '../utils/fireworks'
+import { TodoContext } from '../context/TodoProvider';
 
-export const TodoCounter = ({total, completed}) => {
+export const TodoCounter = () => {
+
+  const { 
+    completedTodos:completed,
+    totalTodos:total,
+  } = useContext(TodoContext);
+
   let mensaje = `Has completado ${completed} de ${total} TODOS`;
   if(completed===0){
     mensaje='Agrega tus tareas y logra tus objetivos';

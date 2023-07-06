@@ -32,9 +32,6 @@ function TodoProvider({ children }) {
     console.log('Logggii 2');
   }, [totalTodos])
 
-
-
-
   return (
     <TodoContext.Provider value={{
       loading,

@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../index.css';
 
 import {Paper,TextField,Stack} from '@mui/material'
 
 import { CreateTodoButton } from './CreateButton';
+import { TodoContext } from '../context/TodoProvider';
 
-export const TodoSearch = ({searchValue,setSearchValue}) => {
+export const TodoSearch = () => {
 
+  const {searchValue,setSearchValue} = useContext(TodoContext);
  
   return (
     <Stack className="contentAlign" >
