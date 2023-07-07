@@ -3,14 +3,15 @@ import {Dialog, DialogTitle,DialogContent, DialogContentText, TextField, DialogA
 import { TodoContext } from '../context/TodoProvider';
 
 
-export const ModalNewTodo = ( ) => {
-  const {searchValue,setSearchValue,openModal, setOpenModal} = useContext(TodoContext);
+export const ModalNewTodo = () => {
+  const {searchValue,setSearchValue,openModal, setOpenModal,saveTodo} = useContext(TodoContext);
   const [tareaValue, setTarea] = useState(searchValue);
   const handleCancel = () => {
     setOpenModal(!openModal);
     setSearchValue('');
   }
   const handleAccept = () => {
+    saveTodo(tareaValue);
     setOpenModal(!openModal);
   }
   return (
@@ -22,7 +23,7 @@ export const ModalNewTodo = ( ) => {
             {searchValue ? ' ¿Está seguro que quiere registar esta tarea?' : '  Escribe la tarea que deseas realizar'}
           </DialogContentText>
           <TextField 
-            autofocus
+            autoFocus
             margin="dense"
             id="txt_tarea"
             label="Descripción"
@@ -33,6 +34,12 @@ export const ModalNewTodo = ( ) => {
             onChange={(event) => {
               setTarea(event.target.value);
             }} 
+            onKeyUp={event => {
+              console.log(event.key);
+              if (event.key === 'Enter') {
+                handleAccept();
+              }
+            }}
           />
         </DialogContent>
         <DialogActions>

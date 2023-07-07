@@ -11,7 +11,7 @@ export const TodoCounter = () => {
   } = useContext(TodoContext);
 
   let mensaje = `Has completado ${completed} de ${total} TODOS`;
-  if(completed===0){
+  if(completed===0 && total===0){
     mensaje='Agrega tus tareas y logra tus objetivos';
   }else  if(completed===total){
     mensaje = `¡Felicitaciones!, completaste todas las tareas`;

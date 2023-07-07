@@ -8,7 +8,7 @@ import { TodoContext } from '../context/TodoProvider';
 
 export const TodoSearch = () => {
 
-  const {searchValue,setSearchValue} = useContext(TodoContext);
+  const {searchValue,setSearchValue,saveTodo} = useContext(TodoContext);
  
   return (
     <Stack className="contentAlign" >
@@ -23,6 +23,15 @@ export const TodoSearch = () => {
             setSearchValue(event.target.value);
           }} 
           value={searchValue} 
+          onKeyUp={(event) => {
+            console.log(event.key);
+            if (event.key === 'Enter') {
+              console.log(event.key);
+              console.log(searchValue);
+              saveTodo(searchValue);
+              setSearchValue('');
+            }
+          }}
         />
         <CreateTodoButton/>
       </Paper>

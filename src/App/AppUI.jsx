@@ -25,6 +25,7 @@ const AppUI = ()=> {
     openModal
   } = useContext(TodoContext);
   return (
+    <>
      <Box
         sx={{
           display: 'flex',
@@ -35,46 +36,52 @@ const AppUI = ()=> {
           pt:5
         }}
       >
-      <Stack sx={{
-          backgroundColor:'#F1F0EE',
-          borderTopLeftRadius:20,
-          borderTopRightRadius:20,
-          borderBottomLeftRadius:20,
-          borderBottomRightRadius:20,
-          height:500
-        }}>
-        <Stack sx={{width:500,height:'auto'}}>
-          <Box sx={{height:100 ,borderTopLeftRadius:20,borderTopRightRadius:20, backgroundColor:'blue'}}>
-            <Typography variant="h6" color="white" textAlign="center">¿Qué quieres hacer?</Typography>
-            <TodoCounter />
-            <TodoSearch  />
-            <Paper elevation={3} className="contentAlign" sx={{width:431,mt:1, ml:4.5}}>
-              <TodoList>
-                {loading && <TodoLoading />}
-                {error && <p>Error</p>}
-                {(!loading && searchedTodos.length===0 ) && <EmptyTodos />}
-                {
-                  searchedTodos.map(todo => (
-                    <TodoItem 
-                      key={todo.text} 
-                      text={todo.text} 
-                      completed={todo.completed}
-                      onComplete={()=> completeTodo(todo.text)}
-                      onDelete={() => deleteTodo(todo.text)}
-                    />
-                    ))
-                }
-              </TodoList>
-            </Paper>
-          </Box>
+        <Stack sx={{
+            backgroundColor: '#F1F0EE',
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
+            borderBottomLeftRadius: 20,
+            borderBottomRightRadius: 20,
+            
+            minHeight:700,
+            maxHeight:900
+          }}>
+          <Stack sx={{width:500,height:'auto'}}>
+            <Box sx={{height:100 ,borderTopLeftRadius:20,borderTopRightRadius:20, backgroundColor:'blue'}}>
+              <Typography variant="h6" color="white" textAlign="center">¿Qué quieres hacer?</Typography>
+              <TodoCounter />
+              <TodoSearch  />
+              <Stack sx={{ flexGrow: 1 }}>
+
+              <Paper elevation={3} className="contentAlign" sx={{width:431,mt:1, ml:4.5}}>
+                <TodoList>
+                  {loading && <TodoLoading />}
+                  {error && <p>Error</p>}
+                  {(!loading && searchedTodos.length===0 ) && <EmptyTodos />}
+                  {
+                    searchedTodos.map(todo => (
+                      <TodoItem 
+                        key={todo.text} 
+                        text={todo.text} 
+                        completed={todo.completed}
+                        onComplete={()=> completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                        />
+                        ))
+                      }
+                </TodoList>
+              </Paper>
+              </Stack>
+            </Box>
+          </Stack>
         </Stack>
-      </Stack>
+      </Box>
       {openModal && createPortal(
         <ModalNewTodo openModal={openModal} />,
         document.body
-      )}
-      
-    </Box>
+        )}
+    
+    </>
 
 
   );

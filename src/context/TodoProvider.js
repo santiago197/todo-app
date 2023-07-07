@@ -30,9 +30,12 @@ function TodoProvider({ children }) {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   }
-  useEffect(() => {
-    console.log('Logggii 2');
-  }, [totalTodos])
+
+  const saveTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({ text, completed: false })
+    saveTodos(newTodos);
+  }
 
   return (
     <TodoContext.Provider value={{
@@ -46,7 +49,8 @@ function TodoProvider({ children }) {
       completeTodo,
       deleteTodo,
       openModal,
-      setOpenModal
+      setOpenModal,
+      saveTodo
     }}>
       {children}
     </TodoContext.Provider>
