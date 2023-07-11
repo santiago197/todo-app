@@ -60,7 +60,6 @@ const AppUI = ()=> {
                   {(!loading && searchedTodos.length===0 ) && <EmptyTodos />}
                   {
                     searchedTodos.map(todo => (
-                     
                       <TodoItem 
                         key={todo.text} 
                         text={todo.text} 
@@ -69,7 +68,6 @@ const AppUI = ()=> {
                         onDelete={() => deleteTodo(todo.text)}
                         />
                         ))
-                        todo.length>=0 && <EmptyTodos/>
                       }
                 </TodoList>
               </Paper>
