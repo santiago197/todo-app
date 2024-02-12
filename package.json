@@ -12,7 +12,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-scripts": "^5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,5 +44,4 @@
     "gh-pages": "^5.0.0"
   },
   "homepage": "https://github.com/SantiagoRodriguezP/todo-app.git"
-
 }
