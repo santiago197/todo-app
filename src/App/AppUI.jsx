@@ -12,6 +12,7 @@ import { TodoContext } from '../context/TodoProvider';
 import { useContext } from 'react';
 import { ModalNewTodo } from '../components/ModalNewTodo';
 import { useStoreTodos } from '../store/todo';
+import { ListTodos } from './ListTodos';
 
 const AppUI = () => {
 	const { loading, error, searchedTodos, completeTodo, openModal } =
@@ -60,28 +61,7 @@ const AppUI = () => {
 							</Typography>
 							<TodoCounter />
 							<TodoSearch />
-							<Stack sx={{ flexGrow: 1 }}>
-								<Paper
-									elevation={3}
-									className="contentAlign"
-									sx={{ width: 431, mt: 1, ml: 4.5 }}
-								>
-									<TodoList>
-										{loading && <TodoLoading />}
-										{error && <p>Error</p>}
-										{!loading && searchedTodos.length === 0 && <EmptyTodos />}
-										{todos.map((todo) => (
-											<TodoItem
-												key={todo.text}
-												text={todo.text}
-												completed={todo.completed}
-												onComplete={() => completeTodo(todo.text)}
-												onDelete={() => deleteTodo(todo.text)}
-											/>
-										))}
-									</TodoList>
-								</Paper>
-							</Stack>
+							<ListTodos />
 							<Button onClick={inc}>One</Button>
 							<Button onClick={dec}>-</Button>
 							<Typography>{count}</Typography>
